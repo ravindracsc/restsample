@@ -7,4 +7,6 @@ release.properties
 *.iml
 .*/
 log
+.project
+.classpath
 

@@ -1,8 +1,10 @@
 package com.example.api.filesample;
 
 import com.example.api.sample.SampleResource;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.junit.Test;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
@@ -59,6 +61,42 @@ public class FileSampleRestApiTest {
         HttpHeaders file1Headers = new HttpHeaders();
         file1Headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         Resource file1Resource = new ClassPathResource("/com/example/api/filesample/uploadtest.txt");
+        HttpEntity<Resource> file1 = new HttpEntity<>(file1Resource,file1Headers);
+        parts.add("file1", file1);
+
+        // for JSON
+        FileSampleResource request = new FileSampleResource();
+        request.setNumber(213);
+        request.setText("upload file with json");
+
+        HttpHeaders jsonHeaders = new HttpHeaders();
+        jsonHeaders.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<FileSampleResource> json = new HttpEntity<>(request,jsonHeaders);
+        parts.add("request", json);
+
+        SampleResource response = template.postForObject("http://localhost:8080/restsample/api/v1/filesample",
+                parts, SampleResource.class);
+        System.out.println(ToStringBuilder.reflectionToString(response));
+    }
+    
+    @Test
+    public void testFileSampleRestPostFromByteArray() {
+        RestTemplate template = new RestTemplate();
+        MultiValueMap<String, Object> parts = new LinkedMultiValueMap<String, Object>();
+
+        // create Resource
+        byte[] data = "hoge fuga piyo".getBytes();
+        Resource file1Resource = new ByteArrayResource(data) {
+            @Override
+            public String getFilename() throws IllegalStateException {
+                return "attachedFileName.txt";
+            }
+        };
+        
+        // for file
+        HttpHeaders file1Headers = new HttpHeaders();
+        file1Headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        
         HttpEntity<Resource> file1 = new HttpEntity<>(file1Resource,file1Headers);
         parts.add("file1", file1);
 
