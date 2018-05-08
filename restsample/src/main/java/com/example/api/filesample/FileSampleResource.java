@@ -7,9 +7,11 @@ public class FileSampleResource {
     private String id;
     private int number;
     private String text;
-
+// sample code has been added
     public String getText() {
+    	
         return text;
+        
     }
 
     public void setText(String text) {
