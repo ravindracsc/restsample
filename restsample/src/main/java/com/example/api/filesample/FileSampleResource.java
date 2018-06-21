@@ -1,8 +1,7 @@
 package com.example.api.filesample;
 
 /**
- * Created by ikeya on 15/06/24.
- */
+ * Updated  by ravindra on 21 */
 public class FileSampleResource {
     private String id;
     private int number;
