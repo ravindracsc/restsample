@@ -9,5 +9,5 @@
 ###############################################################
 
 
-cd  D:\Next-Generation\Next-Generation\API\LorenzoCareSuite\DevOps\OHC
+
 java -jar vclu.jar --deploy --jmx --username admin --password Abc123$$$ --address 127.0.0.1 --port 1617 --filename RequestAdapter.vpkg --flush
