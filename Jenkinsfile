@@ -11,10 +11,5 @@ pipeline {
         powershell 'restsample\\PowerShellScript.ps1'
       }
     }
-    stage('') {
-      steps {
-        git(url: 'https://github.dxc.com/healthcare-ohc/CheatSheet', branch: 'gh-pages', credentialsId: 'rpanchangan@csc.com')
-      }
-    }
   }
 }
