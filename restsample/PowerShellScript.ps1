@@ -10,4 +10,4 @@
 
 
 
-java -jar vclu.jar --deploy --jmx --username admin --password Abc123$$$ --address 127.0.0.1 --port 1617 --filename RequestAdapter.vpkg --flush
+java -jar restsample/vclu.jar --deploy --jmx --username admin --password Abc123$$$ --address 127.0.0.1 --port 1617 --filename restsample/RequestAdapter.vpkg --flush
