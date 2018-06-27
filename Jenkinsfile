@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        powershell 'D:\\Next-Generation\\Next-Generation\\API\\LorenzoCareSuite\\PowerShellScript.ps1'
+        powershell 'PowerShellScript.ps1'
       }
     }
   }
