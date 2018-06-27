@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        powershell 'PowerShellScript.ps1'
+        powershell 'restsample\\PowerShellScript.ps1'
       }
     }
   }
