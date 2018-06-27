@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        echo 'testing'
+        echo 'Placeholder to run the test processes'
       }
     }
     stage('Deployment') {
